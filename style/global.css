@@ -1,0 +1,29 @@
+body {
+  font-family: "Rubik";
+  color: #353434;
+  font-weight: 400;
+  background-color: #EDE6DE;
+}
+
+.container {
+  max-width: 1300px;
+  width: 100%;
+  margin: 0 auto;
+  padding: 0px 10px;
+}
+
+h1 {
+  font-weight: 300;
+  font-size: 48px;
+  line-height: 57px;
+}
+
+h3 {
+  font-size: 32px;
+  line-height: 38px;
+}
+
+p {
+  font-size: 24px;
+  line-height: 28px;
+}/*# sourceMappingURL=global.css.map */

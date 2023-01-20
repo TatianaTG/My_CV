@@ -1,0 +1,255 @@
+@import url("./normalize.css");
+@import url("./global.css");
+@import url("./slick.css");
+$mainColor: #F4EFF3;
+$bgColor: #EDE6DE;
+$textColor: #353434;
+
+
+.header {
+    height: 560px;
+    background-color: $mainColor;
+    position: relative;
+
+    &__flower-img--left {
+        position: absolute;
+        left: 0;
+        transform: rotate(180deg) translateY(-100px);
+    }
+
+    &__flower-img--right {
+        position: absolute;
+        right: 0;
+        transform: translateY(-100px);
+    }
+
+
+    &__name {
+        padding: 40px 0 0 50px;
+    }
+
+
+    &__content {
+        display: flex;
+        justify-content: center;
+    }
+
+    &__img-avatar {
+        width: 560px;
+        height: 560px;
+        border-radius: 50%;
+    }
+
+    &__content-img {
+        position: relative;
+        transform: translateY(20px);
+
+        &::after {
+            content: "";
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+            border: 1px solid $textColor;
+            right: -35px;
+        }
+    }
+}
+
+.about {
+    text-align: center;
+
+    &__content {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+
+    &__title {
+        // margin-top: 260px;
+        // margin-bottom: 50px;
+        margin: 260px 0 50px 0;
+    }
+
+    &__text {
+        max-width: 1100px;
+    }
+}
+
+.skills {
+    &__content {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+
+    &__title {
+        margin: 260px 0 50px 0;
+    }
+
+    &__progress-list {
+        display: flex;
+        gap: 80px;
+    }
+
+    &__progress-item {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 10px;
+    }
+
+    &__progress-title {
+        font-size: 24px;
+        line-height: 28px;
+    }
+
+    @keyframes growProgressBar {
+
+        0%,
+        33% {
+            --pgPercentage: 0;
+        }
+
+        100% {
+            --pgPercentage: var(--value);
+        }
+    }
+
+    @property --pgPercentage {
+        syntax: '<number>';
+        inherits: false;
+        initial-value: 0;
+    }
+
+    &__progress-bar {
+        --size: 12rem;
+        --fg: #369;
+        --bg: #def;
+        --pgPercentage: var(--value);
+        animation: growProgressBar 3s 1 forwards;
+        width: var(--size);
+        height: var(--size);
+        border-radius: 50%;
+        display: grid;
+        place-items: center;
+        background:
+            radial-gradient(closest-side, white 80%, transparent 0 99.9%, white 0),
+            conic-gradient(var(--fg) calc(var(--pgPercentage) * 1%), var(--bg) 0);
+        font-family: Helvetica, Arial, sans-serif;
+        font-size: calc(var(--size) / 5);
+        color: var(--fg);
+
+        &::before {
+            counter-reset: percentage var(--value);
+            content: counter(percentage) '%';
+        }
+    }
+}
+
+.experience {
+    &__content {
+        display: flex;
+        justify-content: space-between;
+        margin-top: 160px;
+    }
+
+    &__education,
+    &__work {
+        position: relative;
+    }
+
+    h1 {
+        margin-bottom: 20px;
+    }
+
+    h3 {
+        margin-bottom: 5px;
+    }
+
+    &__education-line {
+        width: 5px;
+        height: 800px;
+        background-color: $textColor;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        position: absolute;
+        left: 200px;
+        top: 110px;
+    }
+
+    &__work-line {
+        width: 5px;
+        height: 800px;
+        background-color: $textColor;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        position: absolute;
+        right: 350px;
+        top: 110px;
+    }
+
+    &__education-ellipse,
+    &__work-ellipse {
+        width: 20px;
+        height: 20px;
+        background-color: $textColor;
+        border-radius: 50%;
+        transform: translateX(-7px);
+    }
+
+    &__education-timeline,
+    &__work-timeline {
+        display: flex;
+        flex-direction: column;
+        gap: 44px;
+    }
+
+    &__work-info,
+    &__education-info {
+        display: flex;
+        gap: 100px;
+    }
+
+    &__work-date,
+    &__education-date {
+        white-space: nowrap;
+        font-size: 20px;
+        line-height: 24px;
+        padding: 8px 20px;
+        background-color: $mainColor;
+        max-height: 40px;
+        border-radius: 50px;
+    }
+
+    p {
+        max-width: 312px;
+    }
+}
+
+.diploma {
+    &__content-title {
+        text-align: center;
+        margin: 150px 0 50px 0;
+    }
+
+    &__content-slide {
+        width: 420px;
+        height: 515px;
+        background-color: $mainColor;
+        border: 2px solid red;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 40px;
+    }
+    &__content-slider{
+        display: flex;
+        gap: 20px;
+    }
+}

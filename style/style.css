@@ -1,0 +1,212 @@
+@import url("./normalize.css");
+@import url("./global.css");
+@import url("./slick.css");
+.header {
+  height: 560px;
+  background-color: #F4EFF3;
+  position: relative;
+}
+.header__flower-img--left {
+  position: absolute;
+  left: 0;
+  transform: rotate(180deg) translateY(-100px);
+}
+.header__flower-img--right {
+  position: absolute;
+  right: 0;
+  transform: translateY(-100px);
+}
+.header__name {
+  padding: 40px 0 0 50px;
+}
+.header__content {
+  display: flex;
+  justify-content: center;
+}
+.header__img-avatar {
+  width: 560px;
+  height: 560px;
+  border-radius: 50%;
+}
+.header__content-img {
+  position: relative;
+  transform: translateY(20px);
+}
+.header__content-img::after {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  border: 1px solid #353434;
+  right: -35px;
+}
+
+.about {
+  text-align: center;
+}
+.about__content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.about__title {
+  margin: 260px 0 50px 0;
+}
+.about__text {
+  max-width: 1100px;
+}
+
+.skills__content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.skills__title {
+  margin: 260px 0 50px 0;
+}
+.skills__progress-list {
+  display: flex;
+  gap: 80px;
+}
+.skills__progress-item {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+}
+.skills__progress-title {
+  font-size: 24px;
+  line-height: 28px;
+}
+@-webkit-keyframes growProgressBar {
+  0%, 33% {
+    --pgPercentage: 0;
+  }
+  100% {
+    --pgPercentage: var(--value);
+  }
+}
+@keyframes growProgressBar {
+  0%, 33% {
+    --pgPercentage: 0;
+  }
+  100% {
+    --pgPercentage: var(--value);
+  }
+}
+@property --pgPercentage {
+  .skills {
+    syntax: "<number>";
+    inherits: false;
+    initial-value: 0;
+  }
+}
+.skills__progress-bar {
+  --size: 12rem;
+  --fg: #369;
+  --bg: #def;
+  --pgPercentage: var(--value);
+  -webkit-animation: growProgressBar 3s 1 forwards;
+          animation: growProgressBar 3s 1 forwards;
+  width: var(--size);
+  height: var(--size);
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  background: radial-gradient(closest-side, white 80%, transparent 0 99.9%, white 0), conic-gradient(var(--fg) calc(var(--pgPercentage) * 1%), var(--bg) 0);
+  font-family: Helvetica, Arial, sans-serif;
+  font-size: calc(var(--size) / 5);
+  color: var(--fg);
+}
+.skills__progress-bar::before {
+  counter-reset: percentage var(--value);
+  content: counter(percentage) "%";
+}
+
+.experience__content {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 160px;
+}
+.experience__education, .experience__work {
+  position: relative;
+}
+.experience h1 {
+  margin-bottom: 20px;
+}
+.experience h3 {
+  margin-bottom: 5px;
+}
+.experience__education-line {
+  width: 5px;
+  height: 800px;
+  background-color: #353434;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  position: absolute;
+  left: 200px;
+  top: 110px;
+}
+.experience__work-line {
+  width: 5px;
+  height: 800px;
+  background-color: #353434;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  position: absolute;
+  right: 350px;
+  top: 110px;
+}
+.experience__education-ellipse, .experience__work-ellipse {
+  width: 20px;
+  height: 20px;
+  background-color: #353434;
+  border-radius: 50%;
+  transform: translateX(-7px);
+}
+.experience__education-timeline, .experience__work-timeline {
+  display: flex;
+  flex-direction: column;
+  gap: 44px;
+}
+.experience__work-info, .experience__education-info {
+  display: flex;
+  gap: 100px;
+}
+.experience__work-date, .experience__education-date {
+  white-space: nowrap;
+  font-size: 20px;
+  line-height: 24px;
+  padding: 8px 20px;
+  background-color: #F4EFF3;
+  max-height: 40px;
+  border-radius: 50px;
+}
+.experience p {
+  max-width: 312px;
+}
+
+.diploma__content-title {
+  text-align: center;
+  margin: 150px 0 50px 0;
+}
+.diploma__content-slide {
+  width: 420px;
+  height: 515px;
+  background-color: #F4EFF3;
+  border: 2px solid red;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 40px;
+}
+.diploma__content-slider {
+  display: flex;
+  gap: 20px;
+}/*# sourceMappingURL=style.css.map */
