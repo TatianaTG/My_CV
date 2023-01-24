@@ -4,6 +4,7 @@
 $mainColor: #F4EFF3;
 $bgColor: #EDE6DE;
 $textColor: #353434;
+$progressColor: #d4c8b8;
 
 
 .header {
@@ -92,6 +93,7 @@ $textColor: #353434;
     &__progress-list {
         display: flex;
         gap: 80px;
+        align-items: flex-start;
     }
 
     &__progress-item {
@@ -105,43 +107,22 @@ $textColor: #353434;
     &__progress-title {
         font-size: 24px;
         line-height: 28px;
+        text-align: center;
     }
 
-    @keyframes growProgressBar {
-
-        0%,
-        33% {
-            --pgPercentage: 0;
-        }
-
-        100% {
-            --pgPercentage: var(--value);
-        }
-    }
-
-    @property --pgPercentage {
-        syntax: '<number>';
-        inherits: false;
-        initial-value: 0;
-    }
 
     &__progress-bar {
-        --size: 12rem;
-        --fg: #369;
-        --bg: #def;
-        --pgPercentage: var(--value);
-        animation: growProgressBar 3s 1 forwards;
-        width: var(--size);
-        height: var(--size);
+        width: 200px;
+        height: 200px;
         border-radius: 50%;
-        display: grid;
-        place-items: center;
+        color: $textColor;
+        display: flex;
+        align-items: center;
+        justify-content: center;
         background:
-            radial-gradient(closest-side, white 80%, transparent 0 99.9%, white 0),
-            conic-gradient(var(--fg) calc(var(--pgPercentage) * 1%), var(--bg) 0);
-        font-family: Helvetica, Arial, sans-serif;
-        font-size: calc(var(--size) / 5);
-        color: var(--fg);
+            radial-gradient(closest-side, $bgColor 80%, transparent 0 99.9%, $bgColor 0),
+            conic-gradient($mainColor calc(var(--value) * 1%), $progressColor 0);
+        font-size: 32px;
 
         &::before {
             counter-reset: percentage var(--value);
@@ -172,19 +153,19 @@ $textColor: #353434;
 
     &__education-line {
         width: 5px;
-        height: 800px;
+        height: 780px;
         background-color: $textColor;
         display: flex;
         flex-direction: column;
         justify-content: space-between;
         position: absolute;
-        left: 200px;
+        left: 220px;
         top: 110px;
     }
 
     &__work-line {
         width: 5px;
-        height: 800px;
+        height: 500px;
         background-color: $textColor;
         display: flex;
         flex-direction: column;
@@ -192,6 +173,17 @@ $textColor: #353434;
         position: absolute;
         right: 350px;
         top: 110px;
+    }
+
+    &__education-about--title,
+    &__work-about--title {
+        max-width: 300px;
+    }
+
+    &__education-date,
+    &__work-date {
+        width: 180px;
+        text-align: center;
     }
 
     &__education-ellipse,
@@ -304,6 +296,12 @@ $textColor: #353434;
         gap: 130px;
     }
 
+    &__languages-progress {
+        display: flex;
+        flex-direction: column;
+        gap: 35px;
+    }
+
     &__content-languages,
     &__content-about {
         width: 100%;
@@ -327,5 +325,103 @@ $textColor: #353434;
     &__languages-progress--head {
         display: flex;
         justify-content: space-between;
+        margin-bottom: 20px;
     }
+
+    &__languages-progress--bar {
+        width: 100%;
+        height: 20px;
+        background-color: $progressColor;
+        border-radius: 40px;
+        position: relative;
+
+        &::after {
+            content: "";
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 90%;
+            height: 100%;
+            background-color: $mainColor;
+            border-radius: 40px;
+        }
+
+        &.ro::after {
+            width: 20%;
+        }
+
+        &.ru::after {
+            width: 50%;
+        }
+
+        &.de::after {
+            width: 40%;
+        }
+
+        &.en::after {
+            width: 30%;
+        }
+
+    }
+
+    &__content-about--info {
+        display: flex;
+        flex-direction: column;
+        gap: 35px;
+    }
+
+    &__content-item--title {
+        margin-bottom: 6px;
+    }
+}
+
+.gallery {
+
+    &__content {
+        display: grid;
+        width: 100%;
+        height: 730px;
+        grid-template-columns: repeat(3, 1fr);
+        grid-template-rows: repeat(3, 300px);
+        gap: 15px;
+    }
+
+    &__content-title {
+        margin-bottom: 50px;
+        margin-top: 200px;
+        text-align: center;
+
+    }
+
+    &__content-item {
+        background-color: $mainColor;
+        width: 100%;
+        height: 100%;
+        border: 2px solid black;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-size: 48px;
+        object-fit: cover;
+        object-position: center;
+
+        &:nth-child(1) {
+            grid-row: 1 / 3;
+        }
+
+        &:nth-child(5) {
+            grid-row: 2/4;
+            grid-column: 3;
+        }
+
+        &:nth-child(4) {
+            grid-column: 2;
+        }
+
+        &:nth-child(7) {
+            grid-column: 2;
+
+        }
+    }
+
 }
